@@ -8,14 +8,23 @@ import Error from './components/Error'
 import { getNews } from './services/getNews'
 
 function App() {
-  // const [state, setstate] = useState(initialState);
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchTechNews = async () => {
+      setLoading(true)
       const res = await getNews({
         searchQuery: 'microsoft'
       })
-      console.log(res)
+      if(!res){
+        setLoading(false)
+        setError(true)
+        return
+      }
+      setLoading(false)
+      setArticles(res.articles)
     }
 
     fetchTechNews()
@@ -30,7 +39,11 @@ function App() {
     <>
       <Navbar/>
       <Container>
-        <h1>Hello World!</h1>
+        {loading && <Loading/>}
+        {error && <Error/>}
+        {(!loading && articles.length > 0) && (
+          <h1>hello, articles</h1>
+        )}
       </Container>
     </>
   );

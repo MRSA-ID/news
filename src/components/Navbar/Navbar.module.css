@@ -30,3 +30,37 @@
   width: 32px;
   margin-right: 8px;
 }
+
+.categories {
+  display: flex;
+  width: 100%;
+  padding: 16px 0 0 0;
+  overflow-y: scroll;
+  overflow-y: hidden; 
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.categories > a {
+  margin: 0 4px;
+}
+
+.category {
+  padding: 4px 8px;
+  background-color: var(--secondary-brand-color);
+  border-radius: 4px;
+  color: var(--secondary-font-color);
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.selected {
+  background-color: var(--main-font-color);
+}

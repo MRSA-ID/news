@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Container from './components/Container'
 import Loading from './components/Loading'
 import Error from './components/Error'
+import NewList from './components/NewList'
 
 import { getNews } from './services/getNews'
 
@@ -42,7 +43,7 @@ function App() {
         {loading && <Loading/>}
         {error && <Error/>}
         {(!loading && articles.length > 0) && (
-          <h1>hello, articles</h1>
+          <NewList articles={articles} />
         )}
       </Container>
     </>

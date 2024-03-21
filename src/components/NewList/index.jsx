@@ -7,6 +7,11 @@ const NewList = ({ articles }) => {
   return (
     <div className={styles.NewList}>
       {articles.map((article, index, arr) => {
+        // handle untuk tidak merender seusai dengan kondisi tersebut
+        if(!article.urlToImage || !article.author || !article.content){
+          return null
+        }
+
         return (
           <NewsCard
             key={index}
